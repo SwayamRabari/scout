@@ -28,20 +28,6 @@ if (headlinesIndex !== -1) {
 // Add "Headlines" to the beginning of the array
 categories.unshift('Headlines');
 
-const today = new Date();
-
-// Calculating yesterday's date
-const yesterday = new Date(today);
-yesterday.setDate(today.getDate() - 1);
-
-// Calculating the date of 2 days before
-const twoDaysAgo = new Date(today);
-twoDaysAgo.setDate(today.getDate() - 2);
-
-// Formatting the dates as strings in 'YYYY-MM-DD' format
-const yesterdayString = yesterday.toISOString().split('T')[0];
-const twoDaysAgoString = twoDaysAgo.toISOString().split('T')[0];
-
 // Displaying the list of categories
 const displayList = (() => {
   categories.forEach((category) => {
@@ -62,6 +48,21 @@ const displayList = (() => {
     }
   });
 })();
+
+
+const today = new Date();
+
+// Calculating yesterday's date
+const yesterday = new Date(today);
+yesterday.setDate(today.getDate() - 1);
+
+// Calculating the date of 2 days before
+const twoDaysAgo = new Date(today);
+twoDaysAgo.setDate(today.getDate() - 2);
+
+// Formatting the dates as strings in 'YYYY-MM-DD' format
+const yesterdayString = yesterday.toISOString().split('T')[0];
+const twoDaysAgoString = twoDaysAgo.toISOString().split('T')[0];
 
 // Adding event listener for form submission
 form.addEventListener('submit', async (e) => {
@@ -142,7 +143,7 @@ function displayTrendingList(trending) {
     const timage = document.createElement('div');
     timage.classList.add('timage');
     const img = document.createElement('img');
-    img.src = trending[i].urlToImage || 'scoutalt.png';
+    img.src = trending[i].urlToImage || '/public/images/scoutalt.png';
     img.alt = '';
     img.onerror = function () {
       this.onerror = null;
@@ -246,5 +247,8 @@ function transform_date(date_str) {
 displayTrending();
 
 // Fetching and displaying headlines
-const response = await getData('Headlines');
-displayArticles(response);
+async function displayHeadlines() {
+  const response = await getData('Headlines');
+  displayArticles(response);
+}
+displayHeadlines();
