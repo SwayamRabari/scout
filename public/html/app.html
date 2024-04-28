@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scout</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/apple-fonts.css" />
+  </head>
+  <body>
+    <div class="logocontainer">
+      <img class="logo" src="/public/images/scout-logo.svg" alt="" />
+    </div>
+    <div class="articlefinder">
+      <div class="identifier">Newsfeed</div>
+      <div class="searchbar">
+        <form action="">
+          <input class="query" type="text" name="" id="" placeholder="Search" />
+          <button>
+            <img
+              class="arrow"
+              src="/public/images/arrow.svg"
+              alt=""
+              srcset=""
+            />
+          </button>
+        </form>
+      </div>
+    </div>
+    <sidebar>
+      <div class="list"></div>
+    </sidebar>
+    <main>
+      <div class="articlecontainer">
+        <div class="articles"></div>
+      </div>
+      <div class="trendingcontainer">
+        <div class="trending">
+          <div class="theading">Trending</div>
+        </div>
+        <div class="tlistcontainer">
+          <div class="tlist"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="/public/js/APIrouter.js"></script>
+</html>

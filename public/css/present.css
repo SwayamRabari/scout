@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  padding-bottom: 100px;
+}
+:root {
+  --primary-color: #333333;
+  --secondary-color: #788d9c;
+  --secondary-background: #ebeef0;
+  --primary-blue: #397fe8;
+}
+* {
+  font-family: 'SF Pro Text';
+}
+nav {
+  width: 100%;
+  display: flex;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 30px;
+  border-bottom: solid var(--secondary-background) 3px;
+}
+menu {
+  display: flex;
+  gap: 20px;
+}
+button {
+  font-size: 18px;
+  background-color: var(--primary-blue);
+  border: none;
+  color: white;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 7px;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+.head {
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.subhead {
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  line-height: 0px;
+  margin-top: 10px;
+}
+.first {
+  margin-bottom: 12px;
+}
+.heroimg {
+  width: 80%;
+  margin-top: 50px;
+  border: solid var(--secondary-background);
+  border-radius: 10px;
+}
+
+.features {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 80px;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+.fhead {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.fcont {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+a {
+  text-decoration: none;
+  color: white;
+}

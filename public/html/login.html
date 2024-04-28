@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="/public/css/login.css" />
+    <link rel="stylesheet" href="/public/css/apple-fonts.css" />
+  </head>
+  <body>
+    <form action="" method="">
+      <h1>Login</h1>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+        autocomplete="off"
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="off"
+        required
+      />
+      <p>Do not have account? <a href="/public/html/signup.html">Signup</a></p>
+      <input type="submit" />
+    </form>
+  </body>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const supabase = createClient(
+      'https://kkbnmbipxjyfsbbjgpns.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtrYm5tYmlweGp5ZnNiYmpncG5zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQyMjE4NzksImV4cCI6MjAyOTc5Nzg3OX0.QJyKczIGh-Jx0yYk_7pY9o19rWH-qyuVoW199BtHaBA'
+    );
+
+    const loginForm = document.querySelector('form');
+
+    loginForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(loginForm);
+      const email = formData.get('email');
+      const password = formData.get('password');
+
+      try {
+        // Query the 'users' table to find the user with the provided email
+        const { data, error } = await supabase
+          .from('scout')
+          .select()
+          .eq('email', email)
+          .single();
+
+        if (error) {
+          console.error('Database error:', error.message);
+          // Handle database error (e.g., display error message to the user)
+          return;
+        }
+
+        if (!data) {
+          console.error('User not found');
+          // Handle case where user with provided email does not exist
+          return;
+        }
+
+        // Check if the password matches
+        if (data.password !== password) {
+          console.error('Incorrect password');
+          // Handle incorrect password (e.g., display error message to the user)
+          return;
+        }
+
+        console.log('User logged in:', data);
+        window.location.href = `app.html?username=${data.username}&categories=${data.categories}`;
+      } catch (error) {
+        console.error('Login error:', error.message);
+        // Handle unexpected errors (e.g., display generic error message)
+      }
+    });
+  </script>
+</html>

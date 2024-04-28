@@ -1,0 +1,69 @@
+:root {
+  --primary-color: #333333;
+  --secondary-color: #788d9c;
+  --secondary-background: #ebeef0;
+  --primary-blue: #397fe8;
+}
+* {
+  font-family: 'SF Pro Text';
+  text-decoration: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+form {
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+input[type='email'],
+input[type='password'] {
+  width: 300px;
+  height: 35px;
+  text-indent: 10px;
+  font-size: 16px;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  background-color: var(--secondary-background);
+  font-weight: 600;
+}
+input::placeholder {
+  color: var(--secondary-color);
+}
+input[type='checkbox']:checked + label {
+  background-color: var(--primary-blue);
+  color: white;
+}
+h1 {
+  font-size: 40px;
+  color: var(--primary-color);
+  margin-bottom: 7px;
+}
+p {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-top: 0;
+}
+p a {
+  color: var(--primary-blue);
+}
+input[type='submit'] {
+  background-color: var(--primary-blue);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  height: 35px;
+  padding: 0px 18px;
+  border-radius: 7px;
+  font-family: 'SF Pro Text';
+  margin-top: -10px;
+}
