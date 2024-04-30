@@ -49,7 +49,6 @@ const displayList = (() => {
   });
 })();
 
-
 const today = new Date();
 
 // Calculating yesterday's date
